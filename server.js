@@ -52,7 +52,7 @@ app.post('/bikes', (req, res) => {
   })
 })
 
-// GET /bikes/:bike - show a specific bike
+// GET /bikes/:id - show a specific bike
 app.get('/bikes/:id', (req, res) => {
   Bike.findById(req.params.id, function(err,bike) {
     if (err) {
@@ -64,9 +64,30 @@ app.get('/bikes/:id', (req, res) => {
   })
 })
 
-// GET /bikes/:bike/edit - get specific bike to update
+// GET /bikes/:id/edit - get specific bike to update
 app.get('/bikes/:id/edit', (req, res) => {
-  res.send();
+  Bike.findById(req.params.id, function (err, bike) {
+    if (err) {
+      console.log(err);
+      res.send('That is not a valid bike model to show');
+    } else {
+      res.render('bikes/edit', {bike});
+    }
+  })
+})
+
+// PUT /bikes/:id - update a specific bike
+app.put('/bikes/:id', function (req, res) {
+  Bike.findOneAndUpdate({ _id: req.params.id }, {brand: req.body.brand, model: req.body.model}, function(err,bike) {
+    err ? console.log(err) : res.send(200);
+  })
+})
+
+// PUT /bikes/:id - update a specific bike
+app.delete('/bikes/:id', function (req, res) {
+  Bike.findOneAndRemove({_id: req.params.id}, function (err) {
+    err ? console.log(err) : res.send(200);
+  })
 })
 
 app.listen(port, () => {
