@@ -78,15 +78,15 @@ app.get('/bikes/:id/edit', (req, res) => {
 
 // PUT /bikes/:id - update a specific bike
 app.put('/bikes/:id', function (req, res) {
-  Bike.findOneAndUpdate({ _id: req.params.id }, {brand: req.body.brand, model: req.body.model}, function(err,bike) {
-    err ? console.log(err) : res.send(200);
+  Bike.findByIdAndUpdate(req.params.id, {brand: req.body.brand, model: req.body.model}, function(err,bike) {
+    err ? console.log(err) : res.sendStatus(200);
   })
 })
 
 // PUT /bikes/:id - update a specific bike
 app.delete('/bikes/:id', function (req, res) {
-  Bike.findOneAndRemove({_id: req.params.id}, function (err) {
-    err ? console.log(err) : res.send(200);
+  Bike.findByIdAndRemove(req.params.id, function (err) {
+    err ? console.log(err) : res.sendStatus(200);
   })
 })
 
