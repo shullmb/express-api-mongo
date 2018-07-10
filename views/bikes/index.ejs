@@ -7,7 +7,7 @@
         <h1>All the bikes: </h1>
         <ul>
             <% bikes.forEach( function(bike, i) { %>
-            <li><%= bike.model %>, <%= bike.brand %> <a href="/bikes/<%= i %>">Delete</a></li>
+            <li><a href="/bikes/<%= bike._id %>"><%= bike.model %>, <%= bike.brand %></a> <a id="delete" href="/bikes/<%= bike._id %>">Delete</a></li>
             <% }) %>
         </ul>
         <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>

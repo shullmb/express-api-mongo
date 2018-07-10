@@ -16,7 +16,7 @@ $(document).ready( function() {
     })
 
     // DELETE route
-    $('a').on('click', function(e) {
+    $('#delete').on('click', function(e) {
         e.preventDefault();
         var url = $(this).attr('href');
         $.ajax({
