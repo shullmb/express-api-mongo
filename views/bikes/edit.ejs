@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Edit Page</title>
+    </head>
+    <body>
+        <h1>Edit the bike: </h1>
+        <form action="/bikes/<%= id %>" method="POST">
+            <input type="text" name="brand" value="<%= bike.brand %>"><br>
+            <input type="text" name="model" value="<%= bike.model %>"><br>
+            <input type="submit" value="UPDATE THE BIKE">
+        </form>
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+        <script src="/js/script.js"></script>
+    </body>
+</html>
