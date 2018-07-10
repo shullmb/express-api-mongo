@@ -2,7 +2,7 @@ var express = require('express');
 var path = require('path');
 var fs = require('fs');
 var bp = require('body-parser');
-// var ejsLayouts = require('express-ejs-layouts')
+
 
 var app = express();
 
